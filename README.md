@@ -19,16 +19,42 @@ Amit érdemes átnézned:
 - A használt adatbázis [sémája](https://BMEVIAUBB04.github.io/gyakorlat-mssql/sema.html)
 
 Felkészülés ellenőrzése:
-TODO
-- A gyakorlatra való felkészüléshez használható [ezen kérdőív](https://TODO).
-- A gyakorlaton beugróként ugyanezen kérdőívet fogjuk használni, legalább 50% elérése szükséges.
-  - Gyakorlatvezetői instrukció: a hallgató nyissa meg a kérdőívet és töltse ki. A válaszok megadása után az utolsó oldalon a "View results" gombra kattintva megtekinthető az eredmény és az elért pontszám. A hallgató ezen az oldalon álljon meg és mutassa meg eredményét a gyakorlatvezetőnek.
+Az alábbi mintakérdésekből 2-t fogunk feltenni, legalább 1-re helyesen kell válaszolni.
+1. Hogyan lehet vizsgálni egy kifejezés nullitását?
+   is null operátor segítségével
+
+1. Miképp működik a like operátor? Milyen joker karaktereket lehet használni?
+   Kif1 like String minta 
+
+   Sting összehasonlító operátor. A Kif1-ben keres a mintának megfelelően, és ha a minta illeszthető a Kif1-re, akkor az operátor igaz értékkel tér vissza. A mintaillesztés case sensitive, a mintaillesztés során használható joker karakterek:
+   _: egy betű helyettesítése
+   %: tetszőleges hosszúságú szöveg helyettesítése
+   '': szimpla ', mivel a szimpla ' jel önmagában a stringhatároló karakter.
+
+1. Hogyan működnek az oszlopfüggvények?
+   Az oszlopfüggvények működését úgy lehet elképzelni, hogy az adatbázis-kezelő szerver először lefuttatja a lekérdezést az oszlopfüggvények nélkül, majd az egyes rekordokat átadja az oszlopfüggvényeknek, az értékek kiszámítására. Az oszlopfüggvények használhatók csoportokra is, azaz a rekordokat csoportosíthatjuk, és ezen csoportok mentén számítunk ki különböző oszlopfüggvényeket.
+
+1. Mire szolgál a having kulcsszó?
+   Ha egy oszlopfüggvények kimenetére szeretnénk szűrni, akkor azt külön a having kulcsszó után lehet megadni.
+
+1. Írja fel a select utasítás általános szintaktikáját!
+   select [distinct] oszloplista
+   from táblalista
+   [where logikai kifejezés]
+   [group by oszloplista]
+   [having logikai kifejezés]
+   [order by oszloplista]
+
+1. Miképp lehet megadni két tábla outer joinját?
+   A from részben left, right vagy full outer joint használva, pl.
+   select * from gyarto left outer join termek on gyartoid=gyarto.id
+
+
 
 ## Gyakorlat menete
 
-Az első négy TODO feladatot (beleértve a megoldások tesztelését is) a gyakorlatvezetővel együtt oldjuk meg. Az utolsó feladat önálló munka, amennyiben marad rá idő.
-
-Emlékeztetőként a megoldások is megtalálhatóak az útmutatóban is. Előbb azonban próbáljuk magunk megoldani a feladatot!
+Az első három feladatot a gyakorlatvezetővel együtt oldjuk meg. Az utolsó feladat önálló munka, amennyiben marad rá idő.
+A közös feladatok megoldásai megtalálhatóak az útmutatóban is. Előbb azonban próbáljuk magunk megoldani a feladatot!
 
 ## Feladat 1: Adatbázis létrehozása
 
@@ -58,7 +84,7 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
    ![Adatbázis kiválasztása](images/sql-managment-tablak.png).
 
 
-## Feladat 3: SQL parancsok közösen
+## Feladat 3: SQL parancsok (közös)
 
 Írjon SQL lekérdezés/utasítást az alábbi feladatokhoz.
 
@@ -152,10 +178,21 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
 
    </details>
 
-## Feladat 3: SQL parancsok önállóan
+## Feladat 4: SQL parancsok (önálló)
+
+1. Mely termékek ÁFA kulcsa 15%-os?
+1. Az egyes telephelyekre hány rendelés volt eddig?
+1. Melyik városba kérték a legtöbb rendelést?
+1. Melyek azok a vevők, akik legalább 2-szer rendeltek már?
+1. Mely számláknál nem egyezik meg a kiállítás és teljesítés dátuma?
+1. Írjuk ki a 2008 februári rendeléseket!
+1. Írjuk ki azokat a rendeléseket, amelyeknél a határidő 5 napnál szűkebb a rendelés dátumához képest!
+1. Hány vevőnek van gmail-es e-mail címe?
+1. Melyik vevőknek van egynél több telephelye?
+1. Mely vevő(k) adták le a legtöbb tételből álló rendelést? (Több ilyen is lehet!)
 
 ---
 
 Az itt található oktatási segédanyagok a BMEVIAUBB04 tárgy hallgatóinak készültek. Az anyagok oly módú felhasználása, amely a tárgy oktatásához nem szorosan kapcsolódik, csak a szerző(k) és a forrás megjelölésével történhet.
 
-Az anyagok a tárgy keretében oktatott kontextusban értelmezhetőek. Az anyagokért egyéb felhasználás esetén a szerző(k) felelősséget nem vállalnak.
+Az anyagok a tárgy keretében oktatott kontextusban értelmezhetőek. Az anyagokért egyéb felhasználás esetén a szerző(k) felelősséget nem vállal(nak).
