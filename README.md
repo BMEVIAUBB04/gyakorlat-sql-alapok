@@ -62,7 +62,7 @@ Első lépésként szükségünk lesz egy adatbázisra. Az adatbázis tipikusan 
 
 1. Kapcsolódjon a Microsoft SQL Serverhez SQL Server Management Studio Segítségével. Indítsa el az alkalmazást, és az alábbi adatokkal kapcsolódjon.
 
-   - Server name: `(localdb)\mssqllocaldb` vagy `.\sqlexpress`
+   - Server name: `(localdb)\mssqllocaldb`
    - Authentication: `Windows authentication`
 
 1. Hozzon létre egy új adatbázist (ha még nem létezik)! Az adatbázis neve legyen a Neptun kódja: _Object Explorer_-ben Databases-en jobb kattintás, és _Create Database_.
@@ -174,7 +174,24 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
    order by db desc
    ```
 
-   A kérdésre több alternatív lekérdezés is eszünkbe juthat. Ez csak egyike a lehetséges megoldásoknak. Itt láthatunk példát az allekérdezésre (subquery) is.
+   A kérdésre több alternatív lekérdezés is eszünkbe juthat. Ez csak egyike a lehetséges megoldásoknak. Itt láthatunk példát az allekérdezésre (subquery) is. Viszont nem ad helyes megoldást akkor, ha több olyan kategória is van, amely ugyanannyi, maximális számú terméket tartalmaz, mert csak az elsőt ilyen kategóriát adja vissza A teljesen helyes megoldás ehelyett:
+
+   ```sql
+   select k.Nev 
+   from Kategoria k
+     join Termek t on t.KategoriaID = k.ID
+   group by k.id, k.Nev
+   having count(t.id) = 
+     (select max(darab) from
+       (
+	    select count(t.id) AS darab
+        from Kategoria k join Termek t on t.KategoriaID = k.ID
+		group by k.id, k.Nev
+	  ) AS darabszamok
+    )
+    ```
+
+   
 
    </details>
 
