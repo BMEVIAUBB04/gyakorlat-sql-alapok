@@ -8,8 +8,8 @@ A gyakorlat célja, hogy a hallgatók átismételjék a korábban tanult SQL ala
 
 A labor elvégzéséhez szükséges eszközök:
 
-- Microsoft SQL Server (LocalDB vagy Express edition)
-- SQL Server Management Studio
+- [Microsoft SQL Server (LocalDB vagy Express edition)](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver15)
+- [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 - Adatbázis létrehozó script: [mssql.sql](https://raw.githubusercontent.com/BMEVIAUBB04/gyakorlat-mssql/master/mssql.sql)
 
 Amit érdemes átnézned:
