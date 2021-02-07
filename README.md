@@ -51,10 +51,12 @@ Az alábbi mintakérdésekből 2-t fogunk feltenni, legalább 1-re helyesen kell
 
 
 
-## Gyakorlat menete
+## A gyakorlat menete
 
-Az első három feladatot a gyakorlatvezetővel együtt oldjuk meg. Az utolsó feladat önálló munka, amennyiben marad rá idő.
-A közös feladatok megoldásai megtalálhatóak az útmutatóban is. Előbb azonban próbáljuk magunk megoldani a feladatot!
+Az első három feladatot a gyakorlatvezetővel együtt oldjuk meg. Az utolsó feladat önálló munka. A közös feladatok megoldásai megtalálhatóak az útmutatóban is. Előbb azonban próbáljuk magunk megoldani a feladatot!
+
+## Beadandó megoldások
+A labor teljesítésének feltétele egy olyan pdf formátumú jegyzőkönyv elkészítése és feltöltése, amely azt igazolja, hogy a közös 3. feladatot, valamint az önálló 4. feladatban szereplő 10 lekérdezésből legalább az első 6-ot elkészítetted. Javasoljuk ugyanakkor, hogy a többit is próbáld megoldani. Az egyes lekérdezésekhez olyan képernyőképet kérünk a jegyzőkönyvbe, amelyen egyszerre látszik a lekérdezés és az eredménye, valamint a lekérdezésnél kommentként a Neptun kódod.
 
 ## Feladat 1: Adatbázis létrehozása
 
@@ -189,7 +191,7 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
 		group by k.id, k.Nev
 	  ) AS darabszamok
     )
-    ```
+   ```
 
    
 
