@@ -2,7 +2,7 @@
 
 ## Célkitűzés
 
-A gyakorlat célja, hogy a hallgatók átismételjék a korábban tanult SQL alapokat Microsoft SQL szerver környezetben, és elsajátítsák a fejlesztőeszköz használatát.
+A gyakorlat célja, hogy a hallgatók átismételjék a korábban tanult SQL alapokat Microsoft SQL Server környezetben, és elsajátítsák a fejlesztőeszköz használatát.
 
 ## Előfeltételek
 
