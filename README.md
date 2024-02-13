@@ -2,52 +2,59 @@
 
 ## Célkitűzés
 
-A gyakorlat célja, hogy a hallgatók átismételjék a korábban tanult SQL alapokat, Microsoft SQL szerver környezetben, és elsajátítsák a fejlesztőeszköz használatát.
+A gyakorlat célja, hogy a hallgatók átismételjék a korábban tanult SQL alapokat Microsoft SQL szerver környezetben, és elsajátítsák a fejlesztőeszköz használatát.
 
 ## Előfeltételek
 
 A labor elvégzéséhez szükséges eszközök:
 
-- [Microsoft SQL Server (LocalDB vagy Express edition)](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver15)
-- [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
-- Adatbázis létrehozó script: [mssql.sql](https://raw.githubusercontent.com/BMEVIAUBB04/gyakorlat-mssql/master/mssql.sql)
+- [Microsoft SQL Server (LocalDB vagy Express edition)](https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb)
+- [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
+- Adatbázis-létrehozó script: [mssql.sql](https://raw.githubusercontent.com/BMEVIAUBB04/gyakorlat-mssql/master/mssql.sql)
 
 Amit érdemes átnézned:
 
-- SQL nyelv
-- Microsoft SQL Server használata [segédlet](https://BMEVIAUBB04.github.io/gyakorlat-mssql/mssql-hasznalat.html) és [videó](https://web.microsoftstream.com/video/e3a83d16-b5c4-4fe9-b027-703347951621)
+- Az SQL nyelv
+- A Microsoft SQL Server használata ([segédlet](https://BMEVIAUBB04.github.io/gyakorlat-mssql/mssql-hasznalat.html) és [videó](https://web.microsoftstream.com/video/e3a83d16-b5c4-4fe9-b027-703347951621))
 - A használt adatbázis [sémája](https://BMEVIAUBB04.github.io/gyakorlat-mssql/sema.html)
 
-Felkészülés ellenőrzése:
+A felkészülés ellenőrzése:
 Az alábbi mintakérdésekből 2-t fogunk feltenni, legalább 1-re helyesen kell válaszolni.
+
 1. Hogyan lehet vizsgálni egy kifejezés nullitását?
-   is null operátor segítségével
 
-1. Miképp működik a like operátor? Milyen joker karaktereket lehet használni?
-   Kif1 like String minta 
+   _Az `is null` operátor segítségével._
 
-   Sting összehasonlító operátor. A Kif1-ben keres a mintának megfelelően, és ha a minta illeszthető a Kif1-re, akkor az operátor igaz értékkel tér vissza. A mintaillesztés case sensitive, a mintaillesztés során használható joker karakterek:
-   _: egy betű helyettesítése
-   %: tetszőleges hosszúságú szöveg helyettesítése
-   '': szimpla ', mivel a szimpla ' jel önmagában a stringhatároló karakter.
+1. Miképp működik a `like` operátor? Milyen jokerkaraktereket lehet használni?
+
+   _`Kif1 like String minta`_
+
+   _Stringösszehasonlító operátor. A `Kif1`-ben keres a mintának megfelelően, és ha a minta illeszthető a `Kif1`-re, akkor az operátor _igaz_ értékkel tér vissza. A mintaillesztés case sensitive; az annak során használható jokerkarakterek:_
+   * _`_`: egy betű helyettesítése_
+   * _`%`: tetszőleges hosszúságú szöveg helyettesítése_
+   * _`''`: szimpla `'`, mivel ez önmagában a stringhatároló karakter._
 
 1. Hogyan működnek az oszlopfüggvények?
-   Az oszlopfüggvények működését úgy lehet elképzelni, hogy az adatbázis-kezelő szerver először lefuttatja a lekérdezést az oszlopfüggvények nélkül, majd az egyes rekordokat átadja az oszlopfüggvényeknek, az értékek kiszámítására. Az oszlopfüggvények használhatók csoportokra is, azaz a rekordokat csoportosíthatjuk, és ezen csoportok mentén számítunk ki különböző oszlopfüggvényeket.
 
-1. Mire szolgál a having kulcsszó?
-   Ha egy oszlopfüggvények kimenetére szeretnénk szűrni, akkor azt külön a having kulcsszó után lehet megadni.
+   _Az oszlopfüggvények működését úgy lehet elképzelni, hogy az adatbázis-kezelő szerver először lefuttatja a lekérdezést az oszlopfüggvények nélkül, majd az egyes rekordokat átadja az oszlopfüggvényeknek az értékek kiszámítására. Az oszlopfüggvények használhatóak csoportokra is, azaz a rekordokat csoportosíthatjuk, és ezen csoportok mentén számítunk ki különböző oszlopfüggvényeket._
 
-1. Írja fel a select utasítás általános szintaktikáját!
-   select [distinct] oszloplista
+1. Mire szolgál a `having` kulcsszó?
+   
+   _Ha egy oszlopfüggvény kimenetére szeretnénk szűrni, akkor azt külön a `having` kulcsszó után lehet megadni._
+
+1. Írja fel a `select` utasítás általános szintaktikáját!
+   
+   `select [distinct] oszloplista
    from táblalista
    [where logikai kifejezés]
    [group by oszloplista]
    [having logikai kifejezés]
-   [order by oszloplista]
+   [order by oszloplista]`
 
 1. Miképp lehet megadni két tábla outer joinját?
-   A from részben left, right vagy full outer joint használva, pl.
-   select * from gyarto left outer join termek on gyartoid=gyarto.id
+   
+   A `from` parancsnál `left`, `right` vagy `full` `outer join`t használva, pl.
+   `select * from gyarto left outer join termek on gyartoid=gyarto.id`.
 
 
 
