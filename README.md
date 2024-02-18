@@ -30,9 +30,9 @@ Az alábbi mintakérdésekből 2-t fogunk feltenni, legalább 1-re helyesen kell
    _`Kif1 like stringminta`_
 
    _Stringösszehasonlító operátor. A `Kif1`-ben keres a mintának megfelelően, és ha a minta illeszthető a `Kif1`-re, akkor az operátor _igaz_ értékkel tér vissza. A mintaillesztés case sensitive; az annak során használható jokerkarakterek:_
-   * _`_`: egy betű helyettesítése_
-   * _`%`: tetszőleges hosszúságú szöveg helyettesítése_
-   * _`''`: szimpla `'`, mivel ez önmagában a stringhatároló karakter._
+   - _`_`: egy betű helyettesítése_
+   - _`%`: tetszőleges hosszúságú szöveg helyettesítése_
+   - _`''`: szimpla `'`, mivel ez önmagában a stringhatároló karakter._
 
 1. Hogyan működnek az oszlopfüggvények?
 
