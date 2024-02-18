@@ -2,7 +2,7 @@
 
 ## Célkitűzés
 
-A gyakorlat célja, hogy a hallgatók átismételjék a korábban tanult SQL alapokat Microsoft SQL Server környezetben, és elsajátítsák a fejlesztőeszköz használatát.
+A gyakorlat célja, hogy a hallgatók átismételjék a korábban tanult SQL alapokat _Microsoft SQL Server_ környezetben, és elsajátítsák a fejlesztőeszköz használatát.
 
 ## Előfeltételek
 
@@ -15,7 +15,7 @@ A labor elvégzéséhez szükséges eszközök:
 Amit érdemes átnézned:
 
 - Az SQL nyelv
-- A Microsoft SQL Server használata ([segédlet](https://BMEVIAUBB04.github.io/gyakorlat-mssql/mssql-hasznalat.html) és [videó](https://web.microsoftstream.com/video/e3a83d16-b5c4-4fe9-b027-703347951621))
+- A _Microsoft SQL Server_ használata ([segédlet](https://BMEVIAUBB04.github.io/gyakorlat-mssql/mssql-hasznalat.html) és [videó](https://web.microsoftstream.com/video/e3a83d16-b5c4-4fe9-b027-703347951621))
 - A használt adatbázis [sémája](https://BMEVIAUBB04.github.io/gyakorlat-mssql/sema.html)
 
 A felkészülés ellenőrzése:
@@ -27,7 +27,7 @@ Az alábbi mintakérdésekből 2-t fogunk feltenni, legalább 1-re helyesen kell
 
 1. Miképp működik a `like` operátor? Milyen jokerkaraktereket lehet használni?
 
-   _`Kif1 like String minta`_
+   _`Kif1 like stringminta`_
 
    _Stringösszehasonlító operátor. A `Kif1`-ben keres a mintának megfelelően, és ha a minta illeszthető a `Kif1`-re, akkor az operátor _igaz_ értékkel tér vissza. A mintaillesztés case sensitive; az annak során használható jokerkarakterek:_
    * _`_`: egy betű helyettesítése_
@@ -53,49 +53,55 @@ Az alábbi mintakérdésekből 2-t fogunk feltenni, legalább 1-re helyesen kell
 
 1. Miképp lehet megadni két tábla outer joinját?
    
-   A `from` parancsnál `left`, `right` vagy `full` `outer join`t használva, pl.
+   A `from` parancsnál `left`, `right` vagy _full_ `outer join`t használva, pl.
    `select * from gyarto left outer join termek on gyartoid=gyarto.id`.
 
 
 
 ## A gyakorlat menete
 
-Az első három feladatot a gyakorlatvezetővel együtt oldjuk meg. Az utolsó feladat önálló munka. A közös feladatok megoldásai megtalálhatóak az útmutatóban is. Előbb azonban próbáljuk magunk megoldani a feladatot!
+Az első három feladatot a gyakorlatvezetővel együtt oldjuk meg. Az utolsó feladat önálló munka. A közös feladatok megoldásai megtalálhatóak az útmutatóban is. Előbb azonban próbáljuk magunk megoldani a feladatokat!
 
 ## Beadandó megoldások
-A labor teljesítésének feltétele egy olyan pdf formátumú jegyzőkönyv elkészítése és feltöltése, amely azt igazolja, hogy a közös 3. feladatot, valamint az önálló 4. feladatban szereplő 10 lekérdezésből legalább az első 6-ot elkészítetted. Javasoljuk ugyanakkor, hogy a többit is próbáld megoldani. Az egyes lekérdezésekhez olyan képernyőképet kérünk a jegyzőkönyvbe, amelyen egyszerre látszik a lekérdezés és az eredménye, valamint a lekérdezésnél kommentként a Neptun kódod.
 
-## Feladat 1: Adatbázis létrehozása
+A labor teljesítésének feltétele egy olyan `.pdf` formátumú jegyzőkönyv elkészítése és feltöltése, amely azt igazolja, hogy a közös 3. feladatot, valamint az önálló 4. feladatban szereplő 10 lekérdezésből legalább az első 6-ot elkészítetted. Javasoljuk ugyanakkor, hogy a többit is próbáld megoldani. Az egyes lekérdezésekhez olyan képernyőképeket kérünk a jegyzőkönyvbe, melyeken egyszerre látszik a lekérdezés és annak eredménye, valamint a lekérdezésnél kommentként a Neptun-kódod is.
+
+## Feladat 1: Adatbázis létrehozása (közös)
 
 Első lépésként szükségünk lesz egy adatbázisra. Az adatbázis tipikusan egy központi kiszolgálón helyezkedik el, de fejlesztés közben sokszor a saját gépünkön fut. Mi ez utóbbi opciót választjuk.
 
-1. Kapcsolódjon a Microsoft SQL Serverhez SQL Server Management Studio Segítségével. Indítsa el az alkalmazást, és az alábbi adatokkal kapcsolódjon.
+1. Kapcsolódjon a *Microsoft SQL Server*hez az *SQL Server Management Studio* segítségével! Indítsa el az alkalmazást, és az alábbi adatokkal kapcsolódjon:
 
    - Server name: `(localdb)\mssqllocaldb`
-   - Authentication: `Windows authentication`
+   - Authentication: `Windows Authentication`
 
-1. Hozzon létre egy új adatbázist (ha még nem létezik)! Az adatbázis neve legyen a Neptun kódja: _Object Explorer_-ben Databases-en jobb kattintás, és _Create Database_.
+1. Hozzon létre egy új adatbázist (ha még nem létezik):
+  
+   1. Az *Object Explorer*ben a *Databases*re jobb kattintás
+   1. _Create Database_
+   1. Az adatbázis neve legyen a Neptun-kódja
 
 
-## Feladat 2: Adatbázis séma, mintaadatok létrehozása
+## Feladat 2: Adatbázisséma és mintaadatok létrehozása (közös)
 
-1. Hozza létre a minta adatbázist a generáló script lefuttatásával. Nyisson egy új _Query_ ablakot, másolja be a [script](https://raw.githubusercontent.com/BMEVIAUBB04/gyakorlat-mssql/master/mssql.sql) tartalmát, és értelmezzük az utasításokat! A standard SQL-en kívül néhány MSSQL-specifikus kódot is találunk:
+1. Hozza létre a mintaadatbázist a generálóscript lefuttatásával! Nyisson egy új _Query_ ablakot, másolja be a [script](https://raw.githubusercontent.com/BMEVIAUBB04/gyakorlat-mssql/master/mssql.sql) tartalmát, és értelmezzük az utasításokat! A standard SQL-en kívül néhány MSSQL-specifikus kódot is találunk:
 
    - A script elején a meglévő táblák ellenőrzése
-   - Automatikusan generált elsődleges kulcsok az IDENTITY kulcsszó segítségével
-   - A SET IDENTITY_INSERT ... ON/OFF használata, hogy általunk választott azonosítókat szúrhassunk be a generált helyett
-Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő menüben a megfelelő adatbázis kiválasztására.
+   - Automatikusan generált elsődleges kulcsok az `IDENTITY` kulcsszó segítségével
+   - A `SET IDENTITY_INSERT ... ON/OFF` használata, hogy általunk választott azonosítókat szúrhassunk be a generált helyett
+
+1. Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő menüben a megfelelő adatbázis kiválasztására.
 
    ![Adatbázis kiválasztása](images/sql-management-database-dropdown.png)
 
-1. Ellenőrizze, hogy létrejöttek-e a táblák. Ha a _Tables_ mappa ki volt már nyitva, akkor frissíteni kell.
+1. Ellenőrizze, hogy létrejöttek-e a táblák! Ha a _Tables_ mappa ki volt már nyitva, akkor frissíteni kell.
 
    ![Adatbázis kiválasztása](images/sql-managment-tablak.png).
 
 
-## Feladat 3: SQL parancsok (közös)
+## Feladat 3: SQL-parancsok (közös)
 
-Írjon SQL lekérdezés/utasítást az alábbi feladatokhoz.
+Írjon SQL-lekérdezést/-utasítást az alábbi feladatokhoz!
 
 1. Listázza ki az összes vevőt!
 
@@ -114,9 +120,9 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
    select distinct t.nev from Termek t
    join MegrendelesTetel mt on mt.TermekID=t.ID
    ```
-   </details>
    
-   A `join` segítségével kapcsoljuk össze a két táblát. A join, ha külön nem rendelkezünk róla, egy inner join lesz, amiben nem szerepelnek olyan termékek, amiknek nincs párjuk a MegrendelesTetel táblában. Fontos a `distinct` kulcsszó is, amivel kiszűrjük az ismétlődéseket.
+   A `join` segítségével kapcsoljuk össze a két táblát. A `join`, ha külön nem rendelkezünk róla, egy inner join lesz, amiben nem szerepelnek olyan termékek, amiknek nincs párjuk a `MegrendelesTetel` táblában. Fontos a `distinct` kulcsszó is, amivel kiszűrjük az ismétlődéseket.
+   </details>
 
 1. Hány nem teljesített megrendelésünk van (a státusz alapján)?
 
@@ -128,11 +134,11 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
    where s.Nev != 'Kiszállítva'
    ```
 
-   A `join` mellett az oszlopfüggvény (aggregáció) használatára látunk példát. (A táblák kapcsolására nem csak ez a szintaktika használható.)
+   Itt a `join` mellett az oszlopfüggvény (aggregáció) használatára látunk példát. (A táblák kapcsolására nem csak ez a szintaktika használható.)
 
    </details>
    
-1. Melyek azok a fizetési módok, amit soha nem választottak a megrendelőink?
+1. Melyek azok a fizetési módok, amiket soha nem választottak a megrendelőink?
 
    <details><summary markdown="span">Megoldás</summary>
 
@@ -146,7 +152,7 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
 
    </details>
 
-1. Rögzítsünk be egy új vevőt! Kérdezzük le az újonnan létrejött rekord kulcsát!
+1. Rögzítsünk egy új vevőt! Kérdezzük le az újonnan létrejött rekord kulcsát!
 
    <details><summary markdown="span">Megoldás</summary>
 
@@ -157,11 +163,11 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
    select @@IDENTITY
    ```
 
-   Az `insert` után javasolt kiírni az oszlopneveket az egyértelműség végett, bár nem kötelező. Vegyük észre, hogy az ID oszlopnak nem adunk értéket, mert azt a tábla definíciójakor meghatározva a szerver adja automatikusan. Ezért kell utána lekérdeznünk, hogy tudjuk, milyen ID-t adott.
+   Az `insert` után javasolt kiírni az oszlopneveket az egyértelműség végett, bár nem kötelező. Vegyük észre, hogy az `ID` oszlopnak nem adunk értéket, mert azt a tábla definíciójakor meghatározva a szerver adja automatikusan. Ezért kell utána lekérdeznünk, hogy tudjuk, milyen `ID`-t adott.
 
    </details>
 
-1. A kategóriák között hibásan szerepel az _Fajáték_ kategória név. Javítsuk át a kategória nevét *Fakockák*ra!
+1. A kategóriák között hibásan szerepel a _Fajáték_ kategórianév. Javítsuk át *Fakockák*ra!
 
    <details><summary markdown="span">Megoldás</summary>
 
@@ -173,7 +179,7 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
 
    </details>
 
-1. Melyik termék kategóriában van a legtöbb termék?
+1. Melyik termékkategóriában van a legtöbb termék?
 
    <details><summary markdown="span">Megoldás</summary>
 
@@ -183,7 +189,7 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
    order by db desc
    ```
 
-   A kérdésre több alternatív lekérdezés is eszünkbe juthat. Ez csak egyike a lehetséges megoldásoknak. Itt láthatunk példát az allekérdezésre (subquery) is. Viszont nem ad helyes megoldást akkor, ha több olyan kategória is van, amely ugyanannyi, maximális számú terméket tartalmaz, mert csak az elsőt ilyen kategóriát adja vissza A teljesen helyes megoldás ehelyett:
+   A kérdésre több alternatív lekérdezés is eszünkbe juthat. Ez csak egyike a lehetséges megoldásoknak. Itt láthatunk példát az allekérdezésre (subquery) is. Viszont ez nem ad helyes megoldást akkor, amikor több olyan kategória is van, amely ugyanannyi, maximális számú terméket tartalmaz, mert csak az első ilyen kategóriát adja vissza. A tökéletes megoldás:
 
    ```sql
    select k.Nev 
@@ -204,17 +210,17 @@ Futtassa le az utasításokat! Ügyeljen az eszköztáron levő legördülő men
 
    </details>
 
-## Feladat 4: SQL parancsok (önálló)
+## Feladat 4: SQL-parancsok (önálló)
 
-1. Mely termékek ÁFA kulcsa 15%-os?
+1. Mely termékek áfakulcsa 15%-os?
 1. Az egyes telephelyekre hány rendelés volt eddig?
 1. Melyik városba kérték a legtöbb rendelést?
-1. Melyek azok a vevők, akik legalább 2-szer rendeltek már?
+1. Melyek azok a vevők, akik már legalább 2-szer rendeltek?
 1. Mely számláknál nem egyezik meg a kiállítás és teljesítés dátuma?
-1. Írjuk ki a 2008 februári rendeléseket!
-1. Írjuk ki azokat a rendeléseket, amelyeknél a határidő 5 napnál szűkebb a rendelés dátumához képest!
-1. Hány vevőnek van gmail-es e-mail címe?
-1. Melyik vevőknek van egynél több telephelye?
+1. Írjuk ki a 2008. februári rendeléseket!
+1. Írjuk ki azokat a rendeléseket, melyeknél a határidő 5 napnál szűkebb a rendelés dátumához képest!
+1. Hány vevőnek van gmailes e-mail címe?
+1. Mely vevőknek van egynél több telephelye?
 1. Mely vevő(k) adták le a legtöbb tételből álló rendelést? (Több ilyen is lehet!)
 
 ---
